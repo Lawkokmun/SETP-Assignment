@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration</title>
+        <style>
+            body{
+                height: 100vh;
+                background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+            }
+            .container{
+                margin-top: 20px;
+                margin-left: 30%;
+                padding-left: 15px;
+                border: 1px solid black;
+                border-radius: 8px;
+                width: 40%;
+                height: 80%;
+                font-size: 2em;
+                background-color: white;
+            }
+
+            input{
+                height: 30px;
+                font-size: 20px;
+            }
+
+            label{
+                margin-left: 30px;
+            }
+
+            .reg-btn {            /* style for create account button */
+                background-color: #04AA6D;
+                color: white;
+                padding: 16px 20px;
+                border: none;
+                cursor: pointer;
+                width: 30%;
+                margin-bottom:10px;
+                opacity: 0.8;
+                margin-left: 150px;
+                font-size: 20px;
+            }
+
+            .reset-btn{                     /* style for reset button*/
+                background-color: red;
+                color: white;
+                padding: 16px 20px;
+                border: none;
+                cursor: pointer;
+                width: 20%;
+                margin-bottom:10px;
+                opacity: 0.8;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="text-align: center">
+            <a href="HomePage.html"><img src="MCwatchlogo.PNG" height="65"/></a>   
+        </div>
+        <div class="container">
+            <form>
+                <h1 style="text-align: center;">Registration</h1>
+                <label>Username</label>
+                <input type="text" placeholder="8 to 20 characters" style="margin-left: 150px" >
+                <br><br>
+                <label>Email</label>
+                <input type="text" placeholder="Enter an email" style="margin-left: 203px">
+                <br><br>
+                <label>Password</label>
+                <input type="text" placeholder="Enter a password" style="margin-left: 156px">
+                <br><br>
+                <label>Confirm Password</label>
+                <input type="text" placeholder="Re-enter the password" style="margin-left: 40px">
+                <br><br><br>
+                <button type="submit" class="reg-btn">Create Account</button>
+                <button type="reset" class="reset-btn">Clear</button>
+            </form>
+        </div>
+    </body>
+</html>

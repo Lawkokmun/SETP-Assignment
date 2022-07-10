@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-     <title>Home Page Hi I'm over here</title>
+     <title>Home Page</title>
         <style>
             body{
                 padding: 0px;
@@ -107,7 +107,7 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                width: 50%;
+                width: 15%;
                 border: 3px solid #f1f1f1;
                 z-index: 9;
             }
@@ -138,8 +138,30 @@
                 outline: none;
             }
             
-            .form-container .btn {            /* style for submit/login button */
+            .form-container .login-btn {            /* style for submit/login button */
                 background-color: #04AA6D;
+                color: white;
+                padding: 16px 20px;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                margin-bottom:10px;
+                opacity: 0.8;
+            }
+
+            .admin-login-btn{               /* style for admin login button*/
+                background-color: Blue;
+                color: white;
+                padding: 16px 20px;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                margin-bottom:10px;
+                opacity: 0.8;
+            }
+
+            .close-btn{                     /* style for close button*/
+                background-color: red;
                 color: white;
                 padding: 16px 20px;
                 border: none;
@@ -226,8 +248,10 @@
                 <label for="psw"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="psw" required>
             
-                <button type="submit" class="btn">Login</button>
-                <button type="button" class="btn cancel" onclick="toogle()">Close</button>
+                <button type="button" class="admin-login-btn">Admin Login</button>
+                <button type="submit" class="login-btn">Login</button>
+                <button type="button" class="close-btn" onclick="toogle()">Close</button>
+                <a href="CreateAccount.html">Not a member yet? Create account here</a>
                 </form>
             </div>
               
