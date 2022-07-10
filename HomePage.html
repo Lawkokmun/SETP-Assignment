@@ -102,7 +102,7 @@
 
             }                                
             .form-popup {                  /* popup form hidden by default */
-                display: none;
+                visibility: hidden; 
                 position: fixed;
                 top: 50%;
                 left: 50%;
@@ -111,6 +111,13 @@
                 border: 3px solid #f1f1f1;
                 z-index: 9;
             }
+
+            .form-popup.active {            /*popup form visible when click "Login"*/
+                visibility: visible;
+                opacity: 1;
+                transition: 0.5s;
+            }
+
             .form-container {             /* form container */
                 max-width: 300px;
                 padding: 10px;
@@ -150,6 +157,21 @@
                 opacity: 1;
             }
 
+            .container{
+                position: relative;
+                width: 100%;
+                min-height: 100vh;  
+            }
+
+            .container#blur.active{
+                filter: blur(20px);
+                pointer-events: none;
+                user-select: none;
+            }
+
+            .container#blur.inactive{
+                filter: blur(0px);
+            }
 
             
         </style>
@@ -160,7 +182,7 @@
         <header>
             <div class="header-container">
                 <img src="MCwatchlogo.PNG" height="65" style="position: center"/>
-                <button class="open-button" onclick="openForm()" >Login</button>
+                <button class="open-button" onclick="openForm();toogle();">Login</button>
             </div>
             <nav class="nav">
                 <ul class="navList">
@@ -177,36 +199,38 @@
         <body>
 
 
-              
-            <div class="slideshow-container">        <!-- Banner container -->
-                <div class="my-slides fade">
-                    <img src="gshockgmwb5000banner.jpeg" width="80%" height="600">
-                </div>
-                <div class="my-slides fade">
-                    <img src="seikobanner.jpeg" width="80%" height="600">
-                </div>
-                <div class="my-slides fade">
-                    <img src="tissotbanner.jpeg" width="80%" height="600">
-                </div>
-                <div class="my-slides fade">
-                    <img src="orientstar.jpeg" width="80%" height="600">
+            <div class="container" id="blur">           <!--container for blur backgorund-->
+                <div class="slideshow-container">        <!-- Banner container -->
+                    <div class="my-slides fade">
+                        <img src="gshockgmwb5000banner.jpeg" width="80%" height="600">
+                    </div>
+                    <div class="my-slides fade">
+                        <img src="seikobanner.jpeg" width="80%" height="600">
+                    </div>
+                    <div class="my-slides fade">
+                        <img src="tissotbanner.jpeg" width="80%" height="600">
+                    </div>
+                    <div class="my-slides fade">
+                        <img src="orientstar.jpeg" width="80%" height="600">
+                    </div>
                 </div>
             </div>
 
             <div class="form-popup" id="myForm">
                 <form action="/action_page.php" class="form-container">
-                  <h1>Login</h1>
-              
-                  <label for="email"><b>Email</b></label>
-                  <input type="text" placeholder="Enter Email" name="email" required>
-              
-                  <label for="psw"><b>Password</b></label>
-                  <input type="password" placeholder="Enter Password" name="psw" required>
-              
-                  <button type="submit" class="btn">Login</button>
-                  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                <h1>Login</h1>
+            
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+            
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+            
+                <button type="submit" class="btn">Login</button>
+                <button type="button" class="btn cancel" onclick="toogle()">Close</button>
                 </form>
-              </div>
+            </div>
+              
 
 
 
@@ -217,11 +241,7 @@
                 showSlides();
                 
                 function openForm() {          /*make form visible*/
-                document.getElementById("myForm").style.display = "block";
-                }
-
-                function closeForm() {         /*make form invisible*/
-                document.getElementById("myForm").style.display = "none";
+                    document.getElementById("myForm").style.display = "block";
                 }
 
                 function showSlides(){         /*slide show for banner*/
@@ -237,6 +257,14 @@
                     }
                     setTimeout(showSlides, 2000);
                 }
+
+                function toogle(){          /*toogle form on and off*/
+                    let blur = document.getElementById("blur");
+                    blur.classList.toggle("active");
+                    let myForm = document.getElementById("myForm");
+                    myForm.classList.toggle("active");
+                }
+
             </script>
 
 
